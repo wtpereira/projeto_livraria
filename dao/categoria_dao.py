@@ -1,13 +1,12 @@
 from model.categoria import Categoria
-from typing import List
 
 
 class CategoriaDAO:
 
     def __init__(self):
-        self.__categorias: List[Categoria] = list()
+        self.__categorias: list[Categoria] = list()
 
-    def listar(self) -> List[Categoria]:
+    def listar(self) -> list[Categoria]:
         return self.__categorias
 
     def adicionar(self, categoria: Categoria) -> None:

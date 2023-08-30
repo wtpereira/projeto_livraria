@@ -1,12 +1,11 @@
 from model.livro import Livro
-from typing import List
 
 class LivroDAO:
 
     def __init__(self):
-        self.__livros: List[Livro] = list()
+        self.__livros: list[Livro] = list()
 
-    def listar(self) -> List[Livro]:
+    def listar(self) -> list[Livro]:
         return self.__livros
 
     def adicionar(self, livro: Livro) -> None:

@@ -1,12 +1,11 @@
 from model.editora import Editora
-from typing import List
 
 class EditoraDAO:
 
     def __init__(self):
-        self.__editoras: List[Editora] = list()
+        self.__editoras: list[Editora] = list()
 
-    def listar(self) -> List[Editora]:
+    def listar(self) -> list[Editora]:
         return self.__editoras
 
     def adicionar(self, editora: Editora) -> None:

@@ -1,12 +1,11 @@
 from model.autor import Autor
-from typing import List
 
 class AutorDAO:
 
     def __init__(self):
-        self.__autores: List[Autor] = list()
+        self.__autores: list[Autor] = list()
 
-    def listar(self) -> List[Autor]:
+    def listar(self) -> list[Autor]:
         return self.__autores
 
     def adicionar(self, autor: Autor) -> None:
