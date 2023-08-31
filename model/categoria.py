@@ -1,13 +1,13 @@
 class Categoria:
 
-    def __init__(self, id: int, nome: str):
-        self.__id: int = id
+    def __init__(self, nome: str, id=0):
+        self.__id = id
         self.__nome: str = nome
 
     @property
     def id(self) -> int:
-        return self.__id
-    
+        return f'{self.__id} | {self.__nome}'
+
     @id.setter
     def id(self, id: int):
         self.__id = id
