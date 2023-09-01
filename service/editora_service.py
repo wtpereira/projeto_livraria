@@ -54,11 +54,10 @@ class EditoraService:
         print('\nAdicionando editora...')
 
         try:
-            id = self.__editora_dao.ultimo_id() + 1
             nome = input('Digite o nome da editora: ')
             endereco = input('Digite o endereço da editora: ')
             telefone = input('Digite o telefone da editora: ')
-            nova_editora = Editora(id, nome, endereco, telefone)
+            nova_editora = Editora(nome, endereco, telefone)
 
             self.__editora_dao.adicionar(nova_editora)
             print('Editora adicionada com sucesso!')
@@ -80,7 +79,7 @@ class EditoraService:
         except Exception as e:
             print(f'Erro ao excluir editora! - {e}')
             return
-        
+
         input('Pressione uma tecla para continuar...')
 
     def mostrar_por_id(self):
@@ -96,6 +95,6 @@ class EditoraService:
                 print(f'{edt.id} | {edt.nome} | {edt.endereco} | {edt.telefone}')
         except Exception as e:
             print(f'Erro ao exibir editora! - {e}')
-            return     
-        
+            return
+
         input('Pressione uma tecla para continuar...')

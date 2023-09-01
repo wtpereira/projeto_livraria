@@ -4,7 +4,7 @@ from model.autor import Autor
 
 class Livro:
 
-    def __init__(self, id: int, titulo: str, resumo: str, ano: int, paginas: int, isbn: str, categoria: Categoria, editora: Editora, autor: Autor):
+    def __init__(self, titulo: str, resumo: str, ano: int, paginas: int, isbn: str, categoria: Categoria, editora: Editora, autor: Autor, id=0):
         self.__id: int = id
         self.__titulo: str = titulo
         self.__resumo: str = resumo
@@ -18,7 +18,7 @@ class Livro:
     @property
     def id(self) -> int:
         return self.__id
-    
+
     @id.setter
     def id(self, id: int):
         self.__id = id

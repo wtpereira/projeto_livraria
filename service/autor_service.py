@@ -54,12 +54,11 @@ class AutorService:
         print('\nAdicionando autor...')
 
         try:
-            id = self.__autor_dao.ultimo_id() + 1
             nome = input('Digite o nome do autor: ')
             email = input('Digite o email do autor: ')
             telefone = input('Digite o telefone do autor: ')
             bio = input('Digite uma bio reduzida do autor: ')
-            novo_autor = Autor(id, nome, email, telefone, bio)
+            novo_autor = Autor(nome, email, telefone, bio)
             self.__autor_dao.adicionar(novo_autor)
             print('Autor adicionado com sucesso!')
         except Exception as e:
@@ -80,7 +79,7 @@ class AutorService:
         except Exception as e:
             print(f'Erro ao excluir autor! - {e}')
             return
-        
+
         input('Pressione uma tecla para continuar...')
 
     def mostrar_por_id(self):
@@ -96,6 +95,6 @@ class AutorService:
                 print(f'Id: {aut.id} | Autor: {aut.nome} | Email: {aut.email} | Telefone: {aut.telefone} | Bio: {aut.bio}')
         except Exception as e:
             print(f'Erro ao exibir autor! - {e}')
-            return     
-        
+            return
+
         input('Pressione uma tecla para continuar...')

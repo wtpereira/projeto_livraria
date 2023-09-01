@@ -5,16 +5,15 @@ class CategoriaDAO:
 
     def __init__(self):
         self.__conexao_factory = ConexaoFactory()
-        self.__categorias: list[Categoria] = list()
 
     def listar(self) -> list[Categoria]:
         categorias = list()
         conexao = self.__conexao_factory.get_conexao()
         cursor = conexao.cursor()
-        cursor.execute("SELECT id, nome FROM categorias")
+        cursor.execute("SELECT nome, id FROM categorias")
         resultados = cursor.fetchall()
         for resultado in resultados:
-            cat = Categoria(resultado[1], resultado[0])
+            cat = Categoria(resultado[0], resultado[1])
             categorias.append(cat)
 
         cursor.close()

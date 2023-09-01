@@ -60,13 +60,12 @@ class LivroService:
         print('\nAdicionando livro...')
 
         try:
-            id = self.__livro_dao.ultimo_id() + 1
             titulo = input('Digite o título do livro: ')
             resumo = input('Digite o resumo do livro: ')
             ano = int(input('Digite o ano do livro: '))
             paginas = int(input('Digite a quantidade de páginas do livro: '))
             isbn = input('Digite o isbn do livro: ')
-            
+
             print('Categorias de Livro:')
             lista_categorias = self.__categoria_dao.listar()
             for c in lista_categorias:
@@ -106,7 +105,7 @@ class LivroService:
                 id_autor = int(input('Digite o ID do autor do livro: '))
                 autor: Autor = self.__autor_dao.buscar_por_id(id_autor)
 
-            novo_livro = Livro(id, titulo, resumo, ano, paginas, isbn, categoria, editora, autor)
+            novo_livro = Livro(titulo, resumo, ano, paginas, isbn, categoria, editora, autor)
 
             self.__livro_dao.adicionar(novo_livro)
             print('Livro adicionado com sucesso!')
@@ -128,7 +127,7 @@ class LivroService:
         except Exception as e:
             print(f'Erro ao excluir livro! - {e}')
             return
-        
+
         input('Pressione uma tecla para continuar...')
 
     def mostrar_por_id(self):
@@ -144,6 +143,6 @@ class LivroService:
                 print(f'Id: {liv.id} | Título: {liv.titulo} | Resumo: {liv.resumo} | Ano: {str(liv.ano)} | Páginas: {str(liv.paginas)} | Isbn: {liv.isbn} | Categoria: {liv.categoria.nome}  | Editora: {liv.editora.nome}  | Autor: {liv.autor.nome}')
         except Exception as e:
             print(f'Erro ao exibir livro! - {e}')
-            return     
-        
+            return
+
         input('Pressione uma tecla para continuar...')
