@@ -15,12 +15,12 @@ class LivroDAO:
         livros = list()
         conexao = self.__conexao_factory.get_conexao()
         cursor = conexao.cursor()
-        cursor.execute("SELECT titulo, isbn, paginas, ano, resumo, categoria_id, editora_id, autor_id, id FROM livros")
+        cursor.execute("SELECT titulo, resumo, ano, paginas, isbn, categoria_id, editora_id, autor_id, id FROM livros")
         resultados = cursor.fetchall()
         for resultado in resultados:
-            categoria = CategoriaDAO.buscar_por_id(resultado[5])
-            editora = EditoraDAO.buscar_por_id(resultado[6])
-            autor = AutorDAO.buscar_por_id(resultado[7])
+            categoria = CategoriaDAO().buscar_por_id(resultado[5])
+            editora = EditoraDAO().buscar_por_id(resultado[6])
+            autor = AutorDAO().buscar_por_id(resultado[7])
             livro = Livro(resultado[0], resultado[1], resultado[2], resultado[3], resultado[4], categoria, editora, autor, resultado[8])
             livros.append(livro)
 
