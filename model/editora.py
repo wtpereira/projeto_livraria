@@ -37,3 +37,6 @@ class Editora:
     @telefone.setter
     def telefone(self, telefone):
         self.__telefone = telefone
+
+    def as_dict(self) -> dict:
+        return {'nome': self.nome, 'endereco': self.endereco, 'telefone': self.telefone}
