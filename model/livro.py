@@ -59,7 +59,7 @@ class Livro:
     def isbn(self) -> str:
         return self.__isbn
 
-    @titulo.setter
+    @isbn.setter
     def isbn(self, isbn: str):
         self.__isbn = isbn
 
